@@ -128,14 +128,30 @@ function divideCarsOther(arrayOfObjects){
     return arrayOther;
 }
 
-
 function convertArrayOfObjectsToString(array){
+    let string="";
+    array.forEach(function(object){
+        for (let key in object){
+            string += object[key]  + "  ";
+        }
+        string += "<br>"
+
+    });
+    return string;
+}
+
+console.log(convertArrayOfObjectsToString(arrayDiesel));
+
+/*
+function convertArrayOfObjectsToString(array){
+    
     let string="";
     array.forEach(function(element){
         string += JSON.stringify(element);
     });
     return string;
 }
+*/
 
 
 
