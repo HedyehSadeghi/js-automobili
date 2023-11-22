@@ -156,38 +156,31 @@ function convertArrayOfObjectsToString(array){
 
 
 function printInHTML(array){
+    document.getElementById("diesel").innerHTML=convertArrayOfObjectsToString(arrayDiesel);
+    document.getElementById("gas").innerHTML=convertArrayOfObjectsToString(arrayGas);
+    document.getElementById("other_cars").innerHTML=convertArrayOfObjectsToString(arrayOther);
 
-    
-    let container= document.createElement("div");
-    container.classList.add("container", "bg-light");
+}
 
-    container.innerHTML= `
-        <nav id="navbar-example2" class="navbar bg-secondary px-3 mb-3">
-            <a class="navbar-brand" href="#">CARS</a>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="nav-link" href="#scrollspyHeading1">Diesel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#scrollspyHeading2">Gas</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#scrollspyHeading3">Other</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
-            <h4 id="scrollspyHeading1">Diesel cars</h4>
-            <p id="diesel"> ${convertArrayOfObjectsToString(arrayDiesel)}</p>
-            <h4 id="scrollspyHeading2">Gas cars</h4>
-            <p id="gas">${convertArrayOfObjectsToString(arrayGas)} </p>
-            <h4 id="scrollspyHeading3">Other cars</h4>
-            <p id="other_cars"> ${convertArrayOfObjectsToString(arrayOther)}</p>
-        </div>
-    `
 
-    document.body.appendChild(container);
+function addCar(event){
+    event.preventDefault();
+
+    let newMarca = document.getElementById("marca").value;
+    let newModello = document.getElementById("modello").value;
+    let newAlimentazione = document.getElementById("alimentazione").value;
+
+    let newCar = {
+        marca: newMarca,
+        modello: newModello,
+        alimentazione: newAlimentazione,
+    };
+
+    cars.push(newCar);
+    arrayDiesel=divideCarsDiesel(cars);
+    arrayGas=divideCarsGas(cars);
+    arrayOther=divideCarsOther(cars);
+        
+    printInHTML(cars);
+
 }

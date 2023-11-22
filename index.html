@@ -14,12 +14,60 @@
 
 
 
-<body class="">
+<body>
 
   <div class="container bg-light">
+    <nav id="navbar-example2" class="navbar bg-secondary px-3 mb-3 mt-5">
+      <a class="navbar-brand" href="#">CARS</a>
+      <ul class="nav nav-pills">
+          <li class="nav-item">
+              <a class="nav-link" href="#scrollspyHeading1">Diesel</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#scrollspyHeading2">Gas</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+              <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#scrollspyHeading3">Other</a></li>
+              </ul>
+          </li>
+      </ul>
+  </nav>
+  <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
+      <h4 id="scrollspyHeading1">Diesel cars</h4>
+      <p id="diesel"> </p>
+      <h4 id="scrollspyHeading2">Gas cars</h4>
+      <p id="gas"></p>
+      <h4 id="scrollspyHeading3">Other</h4>
+      <p id="other_cars"> </p>
+  </div>
 
 
   </div>
+
+
+
+  
+
+    <form class="m-5">
+      <div class="mx-5 mt-5">
+        <label for="formGroupExampleInput" class="form-label">Marca macchina</label>
+        <input type="text" class="form-control" id="marca" placeholder="Fiat">
+      </div>
+      <div class="mx-5 mb-5">
+        <label for="formGroupExampleInput2" class="form-label">Modello macchina</label>
+        <input type="text" class="form-control" id="modello" placeholder="???">
+        <label for="formGroupExampleInput2" class="form-label">Alimentazione macchina</label>
+        <input type="text" class="form-control" id="alimentazione" placeholder="benzina">
+      </div>
+      <button type="submit" class="btn btn-primary mx-5" onclick="addCar(event)">Submit</button>
+
+    </form>
+    
+
+  
+  
 
 
 
@@ -28,7 +76,8 @@
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
 </body>
 
 </html>
